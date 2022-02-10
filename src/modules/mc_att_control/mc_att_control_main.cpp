@@ -246,7 +246,7 @@ MulticopterAttitudeControl::Run()
 		// Check for new attitude setpoint
 		if (_vehicle_attitude_setpoint_sub.updated()) {
 			vehicle_attitude_setpoint_s vehicle_attitude_setpoint;
-			_vehicle_attitude_setpoint_sub.update(&vehicle_attitude_setpoint);
+			_vehicle_attitude_setpoint_sub.update(&vehicle_attitude_setpoint); /// CHG: update att_sp, including yaw rate
 			_attitude_control.setAttitudeSetpoint(Quatf(vehicle_attitude_setpoint.q_d), vehicle_attitude_setpoint.yaw_sp_move_rate);
 			_thrust_setpoint_body = Vector3f(vehicle_attitude_setpoint.thrust_body);
 		}

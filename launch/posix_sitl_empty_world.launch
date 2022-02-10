@@ -12,8 +12,8 @@
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/pedestrians_dense.world"/>  
-    <!-- pedestrian_street2, pedestrians2, pedestrians_dense, simple_cylinder, red_pillars_thin2, hybrid_small_world, parkinglot hybrid_small_world_2，woods2，fast_pedestrian, empty.world"/> -->
+    <arg name="world" default="(find gazebo_ros)/launch/empty_world.launch"/>  
+    <!-- pedestrian_street2, pedestrians2, pedestrians_dense, simple_cylinder, red_pillars_thin2, hybrid_small_world, hybrid_small_world_2，woods2，fast_pedestrian, empty.world"/> -->
 
     <!-- <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/iris_triple_depth_camera/iris_triple_depth_camera.sdf"/> -->
     <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/iris_triple_depth_camera/iris_triple_depth_camera.sdf"/>

@@ -1831,7 +1831,11 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		break;
 	}
 
-	if (configure_single_stream && !stream_configured && strcmp(configure_single_stream, "HEARTBEAT") != 0) {
+    configure_stream_local("LOCAL_POSITION_NED", 100.0f);
+    configure_stream_local("ATTITUDE", 100.0f);
+
+
+    if (configure_single_stream && !stream_configured && strcmp(configure_single_stream, "HEARTBEAT") != 0) {
 		// stream was not found, assume it is disabled by default
 		return configure_stream(configure_single_stream, 0.0f);
 	}
