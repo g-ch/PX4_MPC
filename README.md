@@ -21,6 +21,27 @@ PX4 is highly portable, OS-independent and supports Linux, NuttX and QuRT out of
 * Releases: [Downloads](https://github.com/PX4/PX4-Autopilot/releases)
 
 
+## Known BUG!!
+When compile with `make px4_sitl_default gazebo`, you may need to comment the GPS component and the sonar component in sitl_gazebo simulation codes first and uncomment later and recompile.
+
+Specifically
+
+* Comment following lines in "PX4-Autopilot/Tools/sitl_gazebo/CMakeLists.txt"
+
+```
+add_library(gazebo_gps_plugin SHARED src/gazebo_gps_plugin.cpp)
+add_library(gazebo_sonar_plugin SHARED src/gazebo_sonar_plugin.cpp)
+
+gazebo_gps_plugin
+gazebo_sonar_plugin
+```
+
+* Run `make px4_sitl_default gazebo`. 
+* Uncomment the above code in CMakeLists and run `make px4_sitl_default gazebo` again.
+
+
+
+
 ## Building a PX4 based drone, rover, boat or robot
 
 The [PX4 User Guide](https://docs.px4.io/master/en/) explains how to assemble [supported vehicles](https://docs.px4.io/master/en/airframes/airframe_reference.html) and fly drones with PX4.
@@ -120,3 +141,5 @@ Additional information about supported hardware can be found in [PX4 user Guide 
 ## Project Roadmap
 
 A high level project roadmap is available [here](https://github.com/orgs/PX4/projects/25).
+
+
